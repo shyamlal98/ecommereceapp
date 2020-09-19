@@ -37,23 +37,20 @@
       </div>
       </div>
       </div>
-      <!-- <div class="row">
+      <div class="row">
         <div class="col-md-12 col-sm-12">
           <input type="text" class="form-control" id="address" name="address" formControlName="address" placeholder="Default Delivery Address">
           <div *ngIf="registerForm.get('address').errors?.required && (registerForm.get('address').touched || !registerForm.get('address').pristine)">
             <p id='cb2'> Address  is required.</p>
         </div> 
         </div>
-        </div> -->
+        </div>
       <div class="row">
         <div class="col-md-12 col-sm-12">
           <input type="number" class="form-control" id="phoneno" name="phoneno" formControlName="phoneno" placeholder="Phone Number">
           <div *ngIf="registerForm.get('phoneno').errors?.required && (registerForm.get('phoneno').touched || !registerForm.get('phoneno').pristine)">
             <p id='cb2'> Mobile Number is required.</p>
-        </div>  
-        <div *ngIf="registerForm.get('phoneno').errors?.required && (registerForm.get('phoneno').touched || !registerForm.get('phoneno').pristine)">
-          <p id='cb2'> Only Numbers are Allowed</p>
-      </div>      
+        </div>       
         </div>
         </div>
       <div class="row">

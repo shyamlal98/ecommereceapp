@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
     cpassword: new FormControl("",Validators.required),
     email:new FormControl("", [Validators.required, Validators.email]),
     address:new FormControl('',[Validators.required]),
-    phoneno:new FormControl('',[Validators.required,Validators.pattern('[0-9]')])
+    phoneno:new FormControl('',[Validators.required])
   },
   {
     validators:confirmPasswordValidator('password', 'cpassword')
@@ -37,15 +37,17 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   register():any{
-
-    if(!this.registerForm.valid) return;
-
+     console.log("Registering")
+     console.log(this.registerForm.getRawValue());
+     console.log(this.registerForm.status);
+    if(!this.registerForm.valid) {
+       console.log("error in register");
+    }
     const user = this.registerForm.getRawValue();
     this.authService.register(user).subscribe(s=>{
       console.log(s);
       this.router.navigate(['/']); 
     });
-
   }
   
   get username(){
@@ -66,7 +68,5 @@ export class RegisterComponent implements OnInit {
   get phoneno(){
     return this.registerForm.get('phoneno');
   }
-
-  
 
 }

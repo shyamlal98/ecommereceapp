@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule} from '@angular/common/http'
 
 
 
@@ -41,7 +42,8 @@ import { ReactiveFormsModule } from '@angular/forms'
     MatIconModule,
     MatMenuModule,
     MatBadgeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
