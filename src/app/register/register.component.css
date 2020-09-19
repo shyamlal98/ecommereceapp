@@ -1,0 +1,54 @@
+.container{
+    margin-top:2%;
+  }
+  .row{
+      margin-bottom:2%;
+  }
+  .progress{
+          height:5px;
+  }
+  .progress-bar{
+      height:5px;
+  }
+  .gray{
+      
+      background-color:lightgray;
+  }
+  .gray:hover {
+      background-color:gray;
+  }
+  .boja1{
+  background-color:olive;
+  }
+  .boja2{
+  background-color:white;
+  }
+  .boja3{
+  background-color:black;
+  }
+  .boja4{
+  background-color:lightred;
+  }
+  .boja5{
+  background-color:lightyellow;
+  }
+  .boja6{
+  background-color:lighterpurple;
+  }
+  .boja7{
+  background-color:lightblue
+  }
+  .boja8{
+  background-color:lighterblue;
+  }
+  .row .col-md-6 {
+    margin-top:1%;
+    
+  }
+
+  .container{
+      font-size: medium;
+      background-color: rgba(106, 163, 207, 0.9);
+      padding-bottom: 1%;
+      width:90vw;
+  }

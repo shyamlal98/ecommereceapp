@@ -1,0 +1,14 @@
+.example-spacer{
+  flex: 1 1 auto;
+}
+
+a{
+  padding: 1 5px;
+  margin : 0 5px;
+  text-decoration: none;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
