@@ -12,3 +12,16 @@ a{
   flex: 1 1 auto;
 }
 
+.logo{
+  background-image: url('../assets/logo.png');
+  height: 200px;
+  width: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.icon{
+  vertical-align: middle;
+  margin: 0 5px;
+}
+

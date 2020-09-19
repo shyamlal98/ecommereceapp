@@ -1,57 +1,99 @@
 
   <div class="container">
     <h1 class="text-center">Registeration Form</h1>
-    <div class="row">
-    <div class="col-md-6 col-sm-12">
-    <input type="text" class="form-control" id="fname" placeholder="First Name">
+    <form [formGroup]="registerForm">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+        <input type="text" class="form-control" id="fname" name="fname" [(ngModel)]="fname" formControlName="fname" placeholder="First Name">
+      
+        <div *ngIf="registerForm.get('fname').errors?.required && (registerForm.get('fname').touched || !registerForm.get('fname').pristine)">
+          <p id='cb2'> First Name is required.</p>
+      </div> 
+      </div>
+        <div class="col-md-6 col-sm-12">
+         <input type="text" class="form-control" id="lname" name="lname" [(ngModel)]="lname" formControlName="lname" placeholder="Last Name">
+         <div *ngIf="registerForm.get('lname').errors?.required && (registerForm.get('lname').touched || !registerForm.get('lname').pristine)">
+          <p id='cb2'> Last Name is required.</p>
+      </div> 
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-md-12 col-sm-12">
+      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" formControlName="username" placeholder="Display Name">
+      <div *ngIf="registerForm.get('username').errors?.required && (registerForm.get('username').touched || !registerForm.get('username').pristine)">
+        <p id='cb2'> Username is required.</p>
+    </div>  
     </div>
-    <div class="col-md-6 col-sm-12">
-     <input type="text" class="form-control" id="lname" placeholder="Last Name">
-   </div>
-  </div>
-  <div class="row">
-  <div class="col-md-12 col-sm-12">
-  <input type="text" class="form-control" id="usename" placeholder="Display Name">
-  </div>
-  </div>
-  <div class="row">
-  <div class="col-md-12 col-sm-12">
-    <input type="email" class="form-control" id="email" placeholder="Email Address">
-  </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 col-sm-12">
-      <input type="text" class="form-control" id="daddress" placeholder="Default Delivery Address">
-    </div>
-    </div>
-  <div class="row">
-    <div class="col-md-12 col-sm-12">
-      <input type="number" class="form-control" id="phoneno" placeholder="Phone Number">
-    </div>
-    </div>
-  <div class="row">
-    <div class="col-md-6 col-sm-12">
-    <input type="password" class="form-control" id="password" placeholder="Password">
-    </div>
-    <div class="col-md-6 col-sm-12">
-     <input type="password" class="form-control" id="cpassword" placeholder="Confirm Password">
-   </div>
-  </div>
-  <div class="row">
-  <div class="col-md-12 col-xs-12">
-    <input type="checkbox" name="agree" value="I agree" required> I Agree By clicking <button type="button" class="btn btn-primary btn-xs">Register</button>,you agree to the <a href="#">Terms and Conditions</a> set out
-   by this site,including our Cookie Use.
-  </div>
-  </div>
-  <div class="row">
-  <div class="col-md-6">
-  <button type="button" class="btn btn-primary col-md-12 col-xs-12">Register</button>
-  </div>
-  <div class="col-xs-12 col-md-6">
-  <button type="button" class="btn btn-success col-md-12 col-xs-12">I Have an Account</button>
-  </div>
-  </div>
-  
+      </div>
+      <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <input type="email" class="form-control" id="email" name="email"  [(ngModel)]="email" formControlName="email" placeholder="Email Address">
+        
+        <div *ngIf="registerForm.get('email').errors?.required && (registerForm.get('email').touched || !registerForm.get('email').pristine)">
+          <p id='cb2'> Email is required.</p>
+      </div>
+      <div *ngIf="registerForm.get('email').errors?.email && (registerForm.get('email').touched || !registerForm.get('email').pristine)">
+          <p id='cb2'> Enter a valid email address.</p>
+      </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <input type="text" class="form-control" id="address" name="address" [(ngModel)]="address" formControlName="address" placeholder="Default Delivery Address">
+          <div *ngIf="registerForm.get('address').errors?.required && (registerForm.get('address').touched || !registerForm.get('address').pristine)">
+            <p id='cb2'> Address  is required.</p>
+        </div> 
+        </div>
+        </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <input type="number" class="form-control" id="phoneno" name="phoneno" [(ngModel)]="phoneno" formControlName="phoneno" placeholder="Phone Number">
+          <div *ngIf="registerForm.get('phoneno').errors?.required && (registerForm.get('phoneno').touched || !registerForm.get('phoneno').pristine)">
+            <p id='cb2'> Mobile Number is required.</p>
+        </div>  
+        <div *ngIf="registerForm.get('phoneno').errors?.required && (registerForm.get('phoneno').touched || !registerForm.get('phoneno').pristine)">
+          <p id='cb2'> Only Numbers are Allowed</p>
+      </div>      
+        </div>
+        </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" formControlName="password" placeholder="Password">
+         
+        <div *ngIf="registerForm.get('password').errors?.required && (registerForm.get('password').touched || !registerForm.get('password').pristine)">
+          <p id='cb2'> Password is required. </p>
+      </div>
+      <div *ngIf="registerForm.get('password').errors?.minlength && (registerForm.get('password').touched || !registerForm.get('password').pristine)">
+          <p id='cb2'> Minimum length of password must be 8. </p>
+      </div>
+      <div *ngIf="!registerForm.get('password').errors?.minlength && registerForm.get('password').errors?.pattern" >
+          <p id='cb2'> Password must contain a special character. </p>
+      </div>  
+      </div>
+        <div class="col-md-6 col-sm-12">
+         <input type="password" class="form-control" id="cpassword" name="cpassword" [(ngModel)]="cpassword" formControlName="cpassword" placeholder="Confirm Password">
+         
+         <div *ngIf="registerForm.errors?.confirmPasswordValidator ">
+          <p id='cb2'> Password field does not match.</p>
+      </div>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-md-12 col-xs-12">
+        <input type="checkbox" name="agree" value="I agree" required> I Agree By clicking <button type="button" class="btn btn-primary btn-xs">Register</button>,you agree to the <a href="#">Terms and Conditions</a> set out
+       by this site,including our Cookie Use.
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-md-6">
+      <button type="button" class="btn btn-primary col-md-12 col-xs-12" (click)="register()">Register</button>
+      </div>
+      <div class="col-xs-12 col-md-6">
+      <button type="submit" class="btn btn-success col-md-12 col-xs-12">Already Have an Account<a routerLink="/login" routerLinkActive="active-link" class="btn">Login</a></button>
+      </div>
+      </div>
+    </form>
+    
   </div>
    
   
