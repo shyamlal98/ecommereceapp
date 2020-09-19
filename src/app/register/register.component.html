@@ -4,14 +4,14 @@
     <form [formGroup]="registerForm">
       <div class="row">
         <div class="col-md-6 col-sm-12">
-        <input type="text" class="form-control" id="fname" name="fname" [(ngModel)]="fname" formControlName="fname" placeholder="First Name">
+        <input type="text" class="form-control" id="fname" name="fname"formControlName="fname" placeholder="First Name">
       
         <div *ngIf="registerForm.get('fname').errors?.required && (registerForm.get('fname').touched || !registerForm.get('fname').pristine)">
           <p id='cb2'> First Name is required.</p>
       </div> 
       </div>
         <div class="col-md-6 col-sm-12">
-         <input type="text" class="form-control" id="lname" name="lname" [(ngModel)]="lname" formControlName="lname" placeholder="Last Name">
+         <input type="text" class="form-control" id="lname" name="lname" formControlName="lname" placeholder="Last Name">
          <div *ngIf="registerForm.get('lname').errors?.required && (registerForm.get('lname').touched || !registerForm.get('lname').pristine)">
           <p id='cb2'> Last Name is required.</p>
       </div> 
@@ -19,7 +19,7 @@
       </div>
       <div class="row">
       <div class="col-md-12 col-sm-12">
-      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" formControlName="username" placeholder="Display Name">
+      <input type="text" class="form-control" id="username" name="username" formControlName="username" placeholder="Display Name">
       <div *ngIf="registerForm.get('username').errors?.required && (registerForm.get('username').touched || !registerForm.get('username').pristine)">
         <p id='cb2'> Username is required.</p>
     </div>  
@@ -27,7 +27,7 @@
       </div>
       <div class="row">
       <div class="col-md-12 col-sm-12">
-        <input type="email" class="form-control" id="email" name="email"  [(ngModel)]="email" formControlName="email" placeholder="Email Address">
+        <input type="email" class="form-control" id="email" name="email" formControlName="email" placeholder="Email Address">
         
         <div *ngIf="registerForm.get('email').errors?.required && (registerForm.get('email').touched || !registerForm.get('email').pristine)">
           <p id='cb2'> Email is required.</p>
@@ -37,17 +37,17 @@
       </div>
       </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-12 col-sm-12">
-          <input type="text" class="form-control" id="address" name="address" [(ngModel)]="address" formControlName="address" placeholder="Default Delivery Address">
+          <input type="text" class="form-control" id="address" name="address" formControlName="address" placeholder="Default Delivery Address">
           <div *ngIf="registerForm.get('address').errors?.required && (registerForm.get('address').touched || !registerForm.get('address').pristine)">
             <p id='cb2'> Address  is required.</p>
         </div> 
         </div>
-        </div>
+        </div> -->
       <div class="row">
         <div class="col-md-12 col-sm-12">
-          <input type="number" class="form-control" id="phoneno" name="phoneno" [(ngModel)]="phoneno" formControlName="phoneno" placeholder="Phone Number">
+          <input type="number" class="form-control" id="phoneno" name="phoneno" formControlName="phoneno" placeholder="Phone Number">
           <div *ngIf="registerForm.get('phoneno').errors?.required && (registerForm.get('phoneno').touched || !registerForm.get('phoneno').pristine)">
             <p id='cb2'> Mobile Number is required.</p>
         </div>  
@@ -58,7 +58,7 @@
         </div>
       <div class="row">
         <div class="col-md-6 col-sm-12">
-        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" formControlName="password" placeholder="Password">
+        <input type="password" class="form-control" id="password" name="password" formControlName="password" placeholder="Password">
          
         <div *ngIf="registerForm.get('password').errors?.required && (registerForm.get('password').touched || !registerForm.get('password').pristine)">
           <p id='cb2'> Password is required. </p>
@@ -71,7 +71,7 @@
       </div>  
       </div>
         <div class="col-md-6 col-sm-12">
-         <input type="password" class="form-control" id="cpassword" name="cpassword" [(ngModel)]="cpassword" formControlName="cpassword" placeholder="Confirm Password">
+         <input type="password" class="form-control" id="cpassword" name="cpassword"  formControlName="cpassword" placeholder="Confirm Password">
          
          <div *ngIf="registerForm.errors?.confirmPasswordValidator ">
           <p id='cb2'> Password field does not match.</p>

@@ -8,14 +8,14 @@
              <a mat-button routerLink="/products" routerLinkActive="active-link"><i class="fa fa-address-card"></i> ContactUs</a>
              <a mat-button routerLink="/products" routerLinkActive="active-link"><i class="fa fa-info-circle"></i> AboutUs</a>
              <span class="example-spacer"></span>
-             <a mat-button ml-auto routerLink='/register' routerLinkActive ='active-link' ><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a>
+             <a *ngIf="!user" mat-button ml-auto routerLink='/register' routerLinkActive ='active-link' ><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a>
               <a *ngIf="!user" mat-button routerLink='/login' routerLinkActive ='active-link' ><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>
               <div>
                 <a *ngIf="user" mat-button [matMenuTriggerFor]="menu">
-                   <mat-icon>account_circle</mat-icon>{{user.username}}
+                   <mat-icon>account_circle</mat-icon>{{user}}
                 </a>
                 <mat-menu #menu="matMenu">
-                   <button (click)="logout()" mat-mat-menu-item>Logout</button>
+                   <button (click)="logout()" mat-menu-item>Logout</button>
                 </mat-menu>
               </div>
               <p>

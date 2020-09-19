@@ -11,9 +11,10 @@ export class AuthService {
   private user$ = new Subject<User>();
   constructor() { }
 
-  login(email:string,password:string):any{
-    const loginCredential = {email,password};
+  login(email:string,password:string,username:string):any{
+    const loginCredential = {email,password,username};
     console.log(loginCredential);
+    this.setUser(username);
      return of(loginCredential);
   }
   logout(){
@@ -30,7 +31,6 @@ export class AuthService {
     console.log("registered user successfully",user);
     return of(user);
   }
-
 
   private setUser(user){
     this.user$.next(user);

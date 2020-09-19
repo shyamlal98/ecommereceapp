@@ -10,14 +10,14 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  fname:string;
-  lname:string;
-  username:string;
-  password:string;
-  cpassword:string;
-  phoneno:number;
-  address:string;
-  email:string;
+  // fname:string;
+  // lname:string;
+  // username:string;
+  // password:string;
+  // cpassword:string;
+  // phoneno:number;
+  // address:string;
+  // email:string;
   registerForm =new FormGroup({
     fname:new FormControl("", [Validators.required]),
     lname:new FormControl("", [Validators.required]),
@@ -37,10 +37,36 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   register():any{
-    this.authService.register(this.username).subscribe(s=>{
+
+    if(!this.registerForm.valid) return;
+
+    const user = this.registerForm.getRawValue();
+    this.authService.register(user).subscribe(s=>{
       console.log(s);
-      this.router.navigate(['/login']); 
+      this.router.navigate(['/']); 
     });
 
   }
+  
+  get username(){
+    return this.registerForm.get('username');
+  }
+
+  get email(){
+    return this.registerForm.get('email');
+  }
+  get passsword(){
+    return this.registerForm.get('passsword');
+  }
+
+  get cpasssword(){
+    return this.registerForm.get('cpasssword');
+  }
+
+  get phoneno(){
+    return this.registerForm.get('phoneno');
+  }
+
+  
+
 }
