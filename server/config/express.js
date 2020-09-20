@@ -6,6 +6,7 @@ const cors = require('cors');
 const helmet = require('helmet');  
 const bodyParser = require('body-parser');
 const routes = require('../routes');
+const httpError = require('http-errors');
 //get app                                                                                                                   
 const app = express();
 
@@ -35,9 +36,19 @@ app.use(cors());
 app.use('/api',routes);
 
 //serve the index.html
-app.get('*',(req,res)=>{
-    res.sendFile(path.join(distFolder,'index.html'));
-})
+app.get('*',(req,res)=>res.sendFile(path.join(distFolder,'index.html')));
 
+// catch 404 error and forward to error hand
+app.use((req,res,next)=>{
+  const error = new HttpError(404);
+  return next(error);
+});
 
+//eror handler, stackc trace
+app.use((err,req,res,next)=>{
+    res.status(err.status || 500).json({
+        message:err.messages
+    });
+    return next(err);
+  });
 module.exports = app;

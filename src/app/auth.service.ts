@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { of, Subject, throwError } from 'rxjs';
 import { switchMap,catchError } from 'rxjs/operators';
 import { User } from './user';
+import { LogService } from '../app/log.service';
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,7 @@ import { User } from './user';
 export class AuthService {
   private user$ = new Subject<User>();
   private apiUrl = '/api/auth/';
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient,private logService:LogService) { }
 
   login(email:string,password:string,username:string):any{
     const loginCredential = {email,password,username};
@@ -25,7 +26,8 @@ export class AuthService {
          return of(foundUser);
        }),
        catchError(e=>{
-            console.log(`User not found \/n Try with different Credential Detail ${e}`);
+         this.logService.log(`User not found \/n Try with different Credential Detail ${e.error.message} `,e);
+            // console.log(`User not found \/n Try with different Credential Detail ${e}`);
             return  throwError("User not found \/n Try with different Credential Detail ");
        })
      );
