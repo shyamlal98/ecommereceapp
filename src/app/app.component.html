@@ -12,7 +12,7 @@
               <a *ngIf="!user" mat-button routerLink='/login' routerLinkActive ='active-link' ><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>
               <div>
                 <a *ngIf="user" mat-button [matMenuTriggerFor]="menu">
-                   <mat-icon>account_circle</mat-icon>{{user}}
+                   <mat-icon>account_circle</mat-icon>{{user.username}}
                 </a>
                 <mat-menu #menu="matMenu">
                    <button (click)="logout()" mat-menu-item>Logout</button>

@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 import { of, Subject, throwError } from 'rxjs';
 import { switchMap,catchError } from 'rxjs/operators';
@@ -17,8 +16,19 @@ export class AuthService {
   login(email:string,password:string,username:string):any{
     const loginCredential = {email,password,username};
     console.log(loginCredential);
-    this.setUser(username);
-     return of(loginCredential);
+     return this.httpClient
+     .post<User>(`${this.apiUrl}login`,loginCredential)
+     .pipe(
+       switchMap(foundUser=>{
+         this.setUser(foundUser);
+         console.log('Found User',foundUser);
+         return of(foundUser);
+       }),
+       catchError(e=>{
+            console.log(`User not found \/n Try with different Credential Detail ${e}`);
+            return  throwError("User not found \/n Try with different Credential Detail ");
+       })
+     );
   }
   logout(){
     // remove user from subject
@@ -27,7 +37,7 @@ export class AuthService {
 
   }
   register(user:any){
-    return this.httpClient.post(`${this.apiUrl}register`,user).pipe(
+    return this.httpClient.post<User>(`${this.apiUrl}register`,user).pipe(
       switchMap(savedUser => {
         this.setUser(savedUser);
         console.log(`user registered successfully ${savedUser}`);
@@ -35,7 +45,7 @@ export class AuthService {
       }),
       catchError(e=>{
         console.log('Server Error Occured',e);
-        return throwError("Registration Failed contact to admin");
+        return throwError("Registration Failed contact admin");
       })
     );
     

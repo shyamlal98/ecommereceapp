@@ -13,11 +13,11 @@
     <div class="form-group">
       <input type="password" class="form-control" id="password" [(ngModel)]="password" placeholder="Enter password" name="password">
     </div>
+    <span *ngIf="error" class="text-center text-danger">{{error}}</span>
     <button type="submit" id="button" class="btn btn-primary deep-purple btn-block" (click)="login()">Submit</button>
    <br>
      <a routerLink="/register" routerLinkActive="active-link" id="nac" class="text-center self-align-center">Create New Account</a>
     <br>
-   
     <div id="btn" class="text-center self-align-center">
    <button type="button" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-facebook"></i></button>
    <button type="button" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-google"></i></button>

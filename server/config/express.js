@@ -16,7 +16,7 @@ if(config.env === 'development'){
 }
 
 //get dist folder
-const distFolder = path.join(__dirname,'../../dist');
+const distFolder = path.join(__dirname,'../../dist/ecommerceapp');
 
 // use dist as hosting dir by express
 app.use(express.static(distFolder));

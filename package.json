@@ -3,13 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "serve": "ng serve",
     "start": "ng serve",
-    "start:server": "nodemon server/index.js",
+    "start:server": "node server/index.js",
+    "server:watch": "nodemon server",
     "build": "ng build",
     "build:prod": "npm run build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "debug": "node --nolazy --inspect-brk=9229 server"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +34,7 @@
     "dotenv": "^8.2.0",
     "express-async-handler": "^1.1.4",
     "helmet": "^4.1.1",
+    "http-errors": "^1.8.0",
     "jquery": "^3.5.1",
     "mongoose": "^5.10.6",
     "morgan": "^1.10.0",
