@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const config = require('./config');
-const morgan = require('morgan');
+const logger = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');  
 const bodyParser = require('body-parser');
@@ -11,6 +11,7 @@ const app = express();
 
 //logger
 if(config.env === 'development'){
+    console.log(`config env ${config.env}`);
     app.use(logger());
 }
 

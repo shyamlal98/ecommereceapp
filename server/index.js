@@ -1,9 +1,10 @@
 const app = require('./config/express');
 const config = require('./config/config');
 
+//innnitialise mongo
+require('./config/mongoose');
 
 // listen to port
-
 app.listen(config.port,(err)=>{
     if(!err) console.log(`Server started at port ${config.port} (${config.env})`);
 })
