@@ -1,8 +1,10 @@
 export interface User{
-    email:string,
+    fname:string,
+    lname:string,
     username:string,
-    phnone:string,
+    email:string,
     password:string,
-    cpassword?:string
-
-  }
+    cpassword:string,
+    phoneno:string,
+    address:string
+}
